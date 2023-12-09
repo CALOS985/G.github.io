@@ -304,7 +304,7 @@ function create_div(dleft, dtop, dwidth, dheight) {
     var string = '<div onclick="hide();" class="close" style="text-align: center;width: ' + (20) + 'px;cursor: pointer;position: absolute; top: 8px; right: 6px ; font-size: 14px ;">X</div>\n';
     string += '<div id="window_body" style="padding: 5px;"><form style="margin:0px;" onsubmit="return false;"><input type="search" size="25" maxlength="25" id="fwtext" style="width:90%; font-size:12px;margin: 0 0 4 0;border-color:#FFF;" onchange="resettext();" placeholder="输入关键词后，点击翻页键即可搜索"><input class="button" type="button" value="∧" onclick="this.blur(); findit(2);" title="查找上一个" style="margin-right: 4px;"><input class="button" type="button" value="∨" onclick="this.blur(); findit();" title="查找下一个"> <span id="find_msg"></span>';
     if (enable_site_search) {
-        string += ' <label style="font-size: 12px;margin-left: -4px;"><input type="radio" name="search_type" value="page" checked>储物间</label><label style="font-size: 12px;"><input type="radio" name="search_type" </label>'
+        string += ' <label style="font-size: 12px;margin-left: -4px;"><input type="radio" name="search_type" value="page" checked>储物间</label><label style="font-size: 12px;"> </label>'
     }
     string += '</form></div>\n';
     findwindow.innerHTML = string;
