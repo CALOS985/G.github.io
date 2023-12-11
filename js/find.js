@@ -28,8 +28,9 @@ function highlight(word, node) {
     for (node = node.firstChild; node; node = node.nextSibling) {
         if (node.nodeType == 3) {
             var n = node;
-            var match_pos = 0; {
-                match_pos = n.nodeValue.toLowerCase().indexOf(word.toLowerCase());
+            // 添加条件检查，确保 n.nodeValue 已定义
+            if (n.nodeValue) {
+                var match_pos = n.nodeValue.toLowerCase().indexOf(word.toLowerCase());
                 if (match_pos > -1) {
                     var before = n.nodeValue.substr(0, match_pos);
                     var middle = n.nodeValue.substr(match_pos, word.length);
@@ -43,14 +44,18 @@ function highlight(word, node) {
                     n.parentNode.insertBefore(highlight_span, n.nextSibling);
                     highlights.push(highlight_span);
                     highlight_span.id = "highlight_span" + highlights.length;
-                    node = node.nextSibling
+                    node = node.nextSibling;
                 }
             }
         } else {
-            if (node.nodeType == 1 && node.nodeName.match(/textarea|input/i) && node.type.match(/textarea|text|number|search|email|url|tel/i) && !getStyle(node, "display").match(/none/i)) textarea2pre(node);
-            else {
-                if (node.nodeType == 1 && !getStyle(node, "visibility").match(/hidden/i))
-                    if (node.nodeType == 1 && !getStyle(node, "display").match(/none/i)) highlight(word, node)
+            if (node.nodeType == 1 && node.nodeName.match(/textarea|input/i) && node.type.match(/textarea|text|number|search|email|url|tel/i) && !getStyle(node, "display").match(/none/i)) {
+                textarea2pre(node);
+            } else {
+                if (node.nodeType == 1 && !getStyle(node, "visibility").match(/hidden/i)) {
+                    if (node.nodeType == 1 && !getStyle(node, "display").match(/none/i)) {
+                        highlight(word, node);
+                    }
+                }
             }
         }
     }
