@@ -2,9 +2,9 @@ var code = ` <div id="{{boxId}}" style="top: 0;left: 0;width: 100vw;height: 100v
 var infoList = [
 
   {
-    title: "超强中文GPT（制造喵）",
-    content: "无需梯子、极速体验、GPT4通道、超强接口、快速稳定！",
-    link: "https://chat.plexpt.com/i/637222 \"target=\"_self\"",
+    title: "站长推荐-超强中文GPT（制造喵）",
+    content: "github上的高星项目、无需梯子、场景预设多解决你不会用的问题、快速稳定！",
+    link: "https://chat.plexpt.com/i/637222 \"target=\"_blank\"",
     img: "https://wework.qpic.cn/wwpic/124822_T2o42DSBTqOYCNB_1686537148",
   },
 ];
